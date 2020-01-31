@@ -7,6 +7,28 @@
   pointer-events: none;
 }
 
+.carousel {
+  width: 100vmin;
+  display: flex;
+  flex-grow: 1;
+  overflow: auto;
+  min-width: 0;
+}
+
+.wholeDisplay {
+  display: flex;
+  flex-direction: column;
+}
+
+.mainPerson{
+  margin-bottom:30px;
+  margin-left: 30px;
+}
+
+.onePicCarousel{
+}
+
+
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;
