@@ -42,7 +42,100 @@ export default function SignUpView() {
 
 
   const calculateScore = () => {
-    console.log('clicked yoooooo');
+    console.log('clicked duddee');
+
+
+    //http request yo.
+      //this is where i'm going to call the apigateway method
+/*
+      const requestBody = {
+        "Inputs": {
+            "input1":
+            [
+                {
+                    'Pregnancies': "0",
+                    'Glucose': "0",
+                    'BloodPressure': "0",
+                    'SkinThickness': "0",
+                    'Insulin': "0",
+                    'BMI': "0",
+                    'DiabetesPedigreeFunction': "0",
+                    'Age': "0",
+                    'Outcome': "0",
+                }
+            ],
+        },
+        "GlobalParameters": {}
+    }
+    */
+
+    const requestBody = {
+      "Inputs": {
+        "input1": {
+          "ColumnNames": [
+            "Pregnancies",
+            "Glucose",
+            "BloodPressure",
+            "SkinThickness",
+            "Insulin",
+            "BMI",
+            "DiabetesPedigreeFunction",
+            "Age",
+            "Outcome"
+          ],
+          "Values": [
+            [
+              "0",
+              "0",
+              "0",
+              "0",
+              "0",
+              "0",
+              "0",
+              "0",
+              "0"
+            ],
+            [
+              "0",
+              "0",
+              "0",
+              "0",
+              "0",
+              "0",
+              "0",
+              "0",
+              "0"
+            ]
+          ]
+        }
+      },
+      "GlobalParameters": {}
+    }
+
+      const requestOptions = {
+        method: 'POST',
+        headers: { 'Accept':'application/json','Content-Type':'application/json','Authorization': 'Bearer XxNYiPfX0vAj4b9XTdrwSpnXqTMeoB88aO7ymtyk+ieI7Y8HbybqGONxypPQF4haHlO1FiiO83V+H7hlyNpZgQ=='},
+        body: JSON.stringify(requestBody)
+    };
+    fetch('https://ussouthcentral.services.azureml.net/workspaces/4c3dc530a4aa454bb5eb182869203b08/services/4142366cbe68443f8fbbe48e2d64f766/execute?api-version=2.0&format=swagger', requestOptions)
+        .then(async response => {
+
+            console.log('yo here is the response: ' + response.json())
+
+
+            // check for error response
+            if (!response.ok) {
+                console.log('response is okay')
+            }
+
+            setScore("Whoa returnedddd!");
+        })
+        .catch(error => {
+            console.log('Email not sent')
+        });
+
+
+
   }
 
   const addToDB = () => {
