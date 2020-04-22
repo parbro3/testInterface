@@ -49,8 +49,6 @@ export default function SignUpView() {
   const [pregnancy, setPState] = useState("");
   const [glucose, setGState] = useState("");
   const [bloodPressure, setBPState] = useState("");
-  const [skinThickness, setSState] = useState("");
-  const [insulin, setIState] = useState("");
   const [bmi, setBState] = useState("");
   const [diabetesPedigreeFunction, setDState] = useState("");
   const [age, setAState] = useState("");
@@ -58,7 +56,7 @@ export default function SignUpView() {
 
   const calculateScore = () => {
 
-    if(pregnancy != "" && glucose != "" && bloodPressure != "" && skinThickness != "" && insulin != "" && bmi != "" && diabetesPedigreeFunction != "" && age != ""){
+    if(pregnancy != "" && glucose != "" && bloodPressure != "" && bmi != "" && diabetesPedigreeFunction != "" && age != ""){
       console.log('clicked duddee');
 
       const requestBody = {
@@ -80,8 +78,8 @@ export default function SignUpView() {
                 pregnancy,
                 glucose,
                 bloodPressure,
-                skinThickness,
-                insulin,
+                "0",
+                "0",
                 bmi,
                 diabetesPedigreeFunction,
                 age,
@@ -190,26 +188,6 @@ export default function SignUpView() {
             required
             id="BloodPressure"
             label="BloodPressure"
-          />
-        </div>
-        
-        <div className={classes.formItem}>
-          <TextField
-            onChange={e => setSState(e.target.value)}
-            variant="outlined"
-            required
-            id="SkinThickness"
-            label="SkinThickness"
-          />
-        </div>
-        
-        <div className={classes.formItem}>
-          <TextField
-            onChange={e => setIState(e.target.value)}
-            variant="outlined"
-            required
-            id="Insulin"
-            label="Insulin"
           />
         </div>
         
